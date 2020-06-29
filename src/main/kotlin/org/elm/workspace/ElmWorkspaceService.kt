@@ -94,6 +94,7 @@ class ElmWorkspaceService(
             val elmCompilerPath: String = "",
             val elmFormatPath: String = "",
             val elmTestPath: String = "",
+            val elmReviewPath: String = "",
             val isElmFormatOnSaveEnabled: Boolean = DEFAULT_FORMAT_ON_SAVE
     )
 
@@ -105,6 +106,7 @@ class ElmWorkspaceService(
                     elmCompilerPath = raw.elmCompilerPath,
                     elmFormatPath = raw.elmFormatPath,
                     elmTestPath = raw.elmTestPath,
+                    elmReviewPath = raw.elmReviewPath,
                     isElmFormatOnSaveEnabled = raw.isElmFormatOnSaveEnabled)
             return Settings(toolchain = toolchain)
         }
@@ -131,6 +133,7 @@ class ElmWorkspaceService(
             it.copy(elmCompilerPath = toolchain.elmCompilerPath.toString(),
                     elmFormatPath = toolchain.elmFormatPath.toString(),
                     elmTestPath = toolchain.elmTestPath.toString(),
+                    elmReviewPath = toolchain.elmReviewPath.toString(),
                     isElmFormatOnSaveEnabled = toolchain.isElmFormatOnSaveEnabled)
         }
     }
@@ -411,6 +414,7 @@ class ElmWorkspaceService(
         settingsElement.setAttribute("elmCompilerPath", raw.elmCompilerPath)
         settingsElement.setAttribute("elmFormatPath", raw.elmFormatPath)
         settingsElement.setAttribute("elmTestPath", raw.elmTestPath)
+        settingsElement.setAttribute("elmReviewPath", raw.elmReviewPath)
         settingsElement.setAttribute("isElmFormatOnSaveEnabled", raw.isElmFormatOnSaveEnabled.toString())
 
         return state
@@ -427,6 +431,7 @@ class ElmWorkspaceService(
         val elmCompilerPath = settingsElement.getAttributeValue("elmCompilerPath") ?: ""
         val elmFormatPath = settingsElement.getAttributeValue("elmFormatPath") ?: ""
         val elmTestPath = settingsElement.getAttributeValue("elmTestPath") ?: ""
+        val elmReviewPath = settingsElement.getAttributeValue("elmReviewPath") ?: ""
         val isElmFormatOnSaveEnabled = settingsElement
                 .getAttributeValue("isElmFormatOnSaveEnabled")
                 .takeIf { it != null && it.isNotBlank() }?.toBoolean()
@@ -437,6 +442,7 @@ class ElmWorkspaceService(
                     elmCompilerPath = elmCompilerPath,
                     elmFormatPath = elmFormatPath,
                     elmTestPath = elmTestPath,
+                    elmReviewPath = elmReviewPath,
                     isElmFormatOnSaveEnabled = isElmFormatOnSaveEnabled
             )
         }
