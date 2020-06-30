@@ -23,6 +23,10 @@ class ElmCLI(private val elmExecutablePath: Path) {
                 .apply { if (jsonReport) addParameter("--report=json") }
                 .execute(owner, ignoreExitCode = true)
     }
+    
+    fun path(): Path {
+        return elmExecutablePath
+    }
 
     fun queryVersion(): Result<Version> {
         // Output of `elm --version` is a single line containing the version number (e.g. `0.19.0\n`)
