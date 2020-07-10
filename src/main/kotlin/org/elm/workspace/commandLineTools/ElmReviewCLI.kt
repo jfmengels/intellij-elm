@@ -30,7 +30,8 @@ class ElmReviewCLI(private val elmReviewExecutablePath: Path) {
         return GeneralCommandLine(elmReviewExecutablePath)
                 .withWorkDirectory(elmProject.projectDirPath.toString())
                 .withParameters(arguments)
-                .execute(ignoreExitCode = true)
+                .execute(ignoreExitCode = true, timeoutInMilliseconds = 200000)
+
     }
 
     fun queryVersion(): Result<Version> {
