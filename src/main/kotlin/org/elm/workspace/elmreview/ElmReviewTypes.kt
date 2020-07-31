@@ -70,7 +70,7 @@ data class End(val line: Int, val column: Int)
 @JsonAdapter(ChunkDeserializer::class)
 sealed class Chunk {
     data class Unstyled(val str: String) : Chunk()
-    data class Styled(val str: String, val color: List<Int>?, val href: String?) : Chunk()
+    data class Styled(val bold: Boolean?, val underline: Boolean?, val color: String?, val string: String, val href: String?) : Chunk()
 }
 
 class ChunkDeserializer : JsonDeserializer<Chunk> {

@@ -8,8 +8,7 @@ private val urlPattern = Regex("""<((http|https)://.*?)>""")
 
 
 fun elmReviewJsonToMessages(json: String): List<ElmReviewError> {
-    val report = Gson().fromJson(json, Report::class.java) ?: error("failed to parse JSON report from elm-review")
-    return when (report) {
+    return when (val report = Gson().fromJson(json, Report::class.java) ?: error("failed to parse JSON report from elm-review")) {
         is Report.General -> {
             listOf(
 //                    TODO Jeroen
@@ -49,9 +48,9 @@ private fun chunkToHtml(chunk: Chunk): String =
             is Chunk.Styled -> with(StringBuilder()) {
                 append("color: ${chunk.color.adjustForDisplay()};")
                 val str = if (chunk.href == null) {
-                    chunk.str
+                    chunk.string
                 } else {
-                    createHyperlinks(chunk.href, chunk.str)
+                    createHyperlinks(chunk.href, chunk.string)
                 }
                 toHtmlSpan(this, str)
             }

@@ -45,34 +45,22 @@ class ElmReviewJsonToHtmlTest : ElmTestBase() {
                               "column": 1
                             }
                           },
-                          "str": ""
+                          "string": ""
                         }
                       ],
                       "formatted": [
                         {
-                          "str": "(fix) ",
-                          "color": [
-                            51,
-                            187,
-                            200
-                          ]
+                          "string": "(fix) ",
+                          "color": "#33BBC8"
                         },
                         {
-                          "str": "NoUnused.Variables",
-                          "color": [
-                            255,
-                            0,
-                            0
-                          ]
+                          "string": "NoUnused.Variables",
+                          "color": "#FF0000"
                         },
                         ": Top-level variable `fzef` is not used\n\n48| fzef =\n    ",
                         {
-                          "str": "^^^^",
-                          "color": [
-                            255,
-                            0,
-                            0
-                          ]
+                          "string": "^^^^",
+                          "color": "#FF0000"
                         },
                         "\n49|     1\n\nYou should either use this value somewhere, or remove it at the location I pointed at."
                       ]
@@ -92,7 +80,7 @@ class ElmReviewJsonToHtmlTest : ElmTestBase() {
                         details = listOf("You should either use this value somewhere, or remove it at the location I pointed at."),
                         region = Region(Start(48, 1), End(48, 5)),
                         html = "<html><body style=\"font-family: monospace; font-weight: bold\">" +
-                                "<span style=\"color: #33bbc8;\">(fix)&nbsp;</span>" +
+                                "<span style=\"color: #33BBC8;\">(fix)&nbsp;</span>" +
                                 "<span style=\"color: #FF5959;\">NoUnused.Variables</span>" +
                                 "<span style=\"color: #4F9DA6\">:&nbsp;Top-level&nbsp;variable&nbsp;`fzef`&nbsp;is&nbsp;not&nbsp;used<br><br>48|&nbsp;fzef&nbsp;=<br>&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
                                 "<span style=\"color: #FF5959;\">^^^^</span>" +
