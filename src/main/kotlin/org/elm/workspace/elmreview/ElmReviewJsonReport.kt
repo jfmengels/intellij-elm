@@ -8,15 +8,18 @@ private val urlPattern = Regex("""<((http|https)://.*?)>""")
 
 
 fun elmReviewJsonToMessages(json: String): List<ElmReviewError> {
-    return when (val report = Gson().fromJson(json, Report::class.java) ?: error("failed to parse JSON report from elm-review")) {
+    return when (val report = Gson().fromJson(json, Report::class.java)
+            ?: error("failed to parse JSON report from elm-review")) {
         is Report.General -> {
-            listOf(
-//                    TODO Jeroen
-//                    ElmReviewError(
-//                    title = report.title,
-////                    html = chunksToHtml(report.message),
-//                    location = report.path?.let { ElmLocation(path = it, moduleName = null, region = null) })
-            )
+            listOf(ElmReviewError(
+                    path = report.path,
+                    rule = report.title,
+                    ruleLink = null,
+                    message = "",
+                    details = listOf(),
+                    region = Region(Start(1, 1), End(2, 1)),
+                    html = chunksToHtml(report.message)
+            ))
         }
         is Report.Specific -> {
             report.errors.flatMap { errorsForFile ->

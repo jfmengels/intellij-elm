@@ -10,7 +10,6 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.fileEditor.OpenFileDescriptor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.SimpleToolWindowPanel
-import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.ui.AutoScrollToSourceHandler
@@ -19,7 +18,6 @@ import com.intellij.ui.JBSplitter
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanelWithEmptyText
 import com.intellij.ui.components.JBScrollPane
-import com.intellij.ui.components.labels.ActionLink
 import com.intellij.ui.content.ContentManager
 import com.intellij.ui.table.JBTable
 import org.elm.ide.actions.ElmExternalReviewAction

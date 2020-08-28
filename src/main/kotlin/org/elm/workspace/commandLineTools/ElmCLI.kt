@@ -23,7 +23,7 @@ class ElmCLI(private val elmExecutablePath: Path) {
                 .apply { if (jsonReport) addParameter("--report=json") }
                 .execute(owner, ignoreExitCode = true)
     }
-    
+
     fun path(): Path {
         return elmExecutablePath
     }
