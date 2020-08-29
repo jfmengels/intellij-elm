@@ -25,6 +25,7 @@ class ElmReviewCLI(private val elmReviewExecutablePath: Path) {
                 "--report=json",
                 // This option makes the CLI output non-JSON output, but can be useful to debug what is happening
                 // "--debug",
+                "--namespace=intellij-elm",
                 if (elmCompiler == null) "" else "--compiler=${elmCompiler.path()}"
         )
         return GeneralCommandLine(elmReviewExecutablePath)
