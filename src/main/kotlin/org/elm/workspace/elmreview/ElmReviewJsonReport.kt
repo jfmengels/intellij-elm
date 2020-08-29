@@ -14,9 +14,7 @@ fun elmReviewJsonToMessages(json: String): List<ElmReviewError> {
             listOf(ElmReviewError(
                     path = report.path,
                     rule = report.title,
-                    ruleLink = null,
                     message = "",
-                    details = listOf(),
                     region = Region(Start(1, 1), End(2, 1)),
                     html = chunksToHtml(report.message)
             ))
@@ -27,9 +25,7 @@ fun elmReviewJsonToMessages(json: String): List<ElmReviewError> {
                     ElmReviewError(
                             path = errorsForFile.path,
                             rule = error.rule,
-                            ruleLink = error.ruleLink,
                             message = error.message,
-                            details = error.details,
                             region = error.region,
                             html = chunksToHtml(error.formatted)
                     )

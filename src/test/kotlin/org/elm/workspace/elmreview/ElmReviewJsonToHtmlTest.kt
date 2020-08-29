@@ -75,9 +75,7 @@ class ElmReviewJsonToHtmlTest : ElmTestBase() {
                 listOf(ElmReviewError(
                         path = "src/NoUnused/Dependencies.elm",
                         rule = "NoUnused.Variables",
-                        ruleLink = "https://package.elm-lang.org/packages/jfmengels/review-unused/2.1.0/NoUnused-Variables",
                         message = "Top-level variable `fzef` is not used",
-                        details = listOf("You should either use this value somewhere, or remove it at the location I pointed at."),
                         region = Region(Start(48, 1), End(48, 5)),
                         html = "<html><body style=\"font-family: monospace; font-weight: bold\">" +
                                 "<span style=\"color: #33BBC8;\">(fix)&nbsp;</span>" +

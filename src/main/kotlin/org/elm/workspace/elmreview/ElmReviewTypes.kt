@@ -46,18 +46,14 @@ data class ElmReviewError(
         // TODO Add a optional fix field (For later)
         val path: String?,
         val rule: String,
-        val ruleLink: String?,
         val message: String,
-        val details: List<String>,
         val region: Region,
         val html: String
 )
 
 data class ElmReviewIntermediateError(
         val rule: String,
-        val ruleLink: String?,
         val message: String,
-        val details: List<String>,
         val region: Region,
         val formatted: List<Chunk>
 )
